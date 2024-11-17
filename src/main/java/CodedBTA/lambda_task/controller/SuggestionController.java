@@ -18,7 +18,7 @@ public class SuggestionController {
 
     @PostMapping("/suggestions")
     public ResponseEntity<GuestSuggestionEntity> process(@RequestBody CreateSuggestionRequest request){
-        guestSuggestionService.printAndProcessSuggestion(request.getSuggestionText());
+        guestSuggestionService.printAndProcessSuggestion(request);
         return ResponseEntity.ok().body(null);
     }
 

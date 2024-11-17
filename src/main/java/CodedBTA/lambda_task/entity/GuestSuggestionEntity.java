@@ -1,9 +1,7 @@
 package CodedBTA.lambda_task.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import CodedBTA.lambda_task.util.SuggestionStatus;
+import jakarta.persistence.*;
 
 @Entity
 public class GuestSuggestionEntity {
@@ -15,6 +13,9 @@ public class GuestSuggestionEntity {
     private Double rate;
 
     private String suggestionText;
+
+    @Enumerated(EnumType.STRING)
+    private SuggestionStatus status;
 
     public Long getId() {
         return id;
@@ -38,5 +39,13 @@ public class GuestSuggestionEntity {
 
     public void setSuggestionText(String suggestionText) {
         this.suggestionText = suggestionText;
+    }
+
+    public SuggestionStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(SuggestionStatus status) {
+        this.status = status;
     }
 }
